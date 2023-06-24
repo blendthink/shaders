@@ -1,0 +1,42 @@
+include: all_lint_rules.yaml
+
+analyzer:
+  language:
+    # Increase safety as much as possible
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Cause the import of all_lint_rules to warn because of some rules conflicts.
+    # Those warnings will be fixed in this file.
+    included_file_warning: ignore
+
+linter:
+  rules:
+    # Conflicts with enabling `strict-raw-types`
+    avoid_annotating_with_dynamic: false
+
+    # Conflicts with `avoid_types_on_closure_parameters`, `omit_local_variable_types`
+    always_specify_types: false
+
+    # Conflicts with `avoid_final_parameters`
+    prefer_final_parameters: false
+
+    # Conflicts with `always_use_package_imports`
+    prefer_relative_imports: false
+
+    # Conflicts with `prefer_single_quotes`
+    prefer_double_quotes: false
+
+    # Conflicts with `prefer_final_locals`
+    unnecessary_final: false
+
+    # Using `=>` has sometimes to reduce readability
+    prefer_expression_function_bodies: false
+
+    # Don't use Flutter-style todos
+    flutter_style_todos: false
+
+    # Too much
+    diagnostic_describe_all_properties: false
+    public_member_api_docs: false
